@@ -15,7 +15,4 @@ after_success:
   - git init
   - git add -A
   - git commit -m "Update from Travis CI"
-  - 'git push --quiet https://$GH_TOKEN@github.com/tsuwatch/tsuwatch.github.io 2> /dev/null'
-branches:
-  only:
-    - source
+  - 'git push --quiet https://$GH_TOKEN@github.com/tsuwatch/tsuwatch.github.io master -f'
