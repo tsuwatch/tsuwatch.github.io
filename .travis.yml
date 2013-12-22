@@ -13,4 +13,4 @@ after_success:
   - cd build
   - git add -A
   - git commit -m "Update"
-  - 'git push --quiet https://$GITHUB_TOKEN@github.com/tsuwatch/tsuwatch.github.io 2 > /dev/null'
+  - 'git push --quiet https://$GH_TOKEN@github.com/tsuwatch/tsuwatch.github.io 2 > /dev/null'
