@@ -1,0 +1,16 @@
+env:
+  global:
+    - GIT_COMITTER_NAME="Tomohiro Suwa"
+    - GIT_COMITTER_EMAIL="neoen.gsn@gmail.com"
+    - GIT_AUTHOR_NAME="Tomohiro Suwa"
+    - GIT_AUTHOR_EMAIL="neoen.gsn@gmail.com"
+    - secure: "W9zm5Zhal/jprXG3LcVjeLh6ByxJEVpjGM1XCflcod71XAW9qKTJ3N7pvuVEqP5XbrRY3yc8bHbj2h8WukE3E5Z0BdziV2vc6IJvrNJLbnoBa50XN6rhifyAIiavvJbN0eR0qeG/dZ9WBRk33bE4W2tHp3mT2C9OTJ4goZo6DFk="
+before_script:
+  - git clone --quiet https://github.com/tsuwatch/tsuwatch.github.io build
+script:
+  - bundle exec middleman build
+after_success:
+  - cd build
+  - git add -A
+  - git commit -m "Update"
+  - 'git push --quiet https://$GITHUB_TOKEN@github.com/tsuwatch/tsuwatch.github.io 2 > /dev/null'
